@@ -1,0 +1,7 @@
+version: '2'
+services:
+  tomcat:
+    build: .
+    restart: "no"
+    ports:
+     - "8080:8080"
