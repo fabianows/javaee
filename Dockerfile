@@ -8,9 +8,9 @@ RUN yum install -y wget && \
 	rm jre-8u77-linux-x64.rpm && \
 	mkdir /opt/tomcat && \
 	cd /opt/tomcat && \
-	wget apache.cu.be/tomcat/tomcat-8/v8.5.11/bin/apache-tomcat-8.5.11.tar.gz && \
-	tar zxf apache-tomcat-8.5.11.tar.gz -C /opt/tomcat && \
-	rm apache-tomcat-8.5.11.tar.gz
+	wget http://apache.cu.be/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz && \
+	tar zxf apache-tomcat-8.5.15.tar.gz -C /opt/tomcat && \
+	rm apache-tomcat-8.5.15.tar.gz
 
 ENV HOME=/root \
     MARIADB_MAJOR=10.1
@@ -32,9 +32,9 @@ ADD scripts/ /
 ADD app/ /
 
 # Add Tomcat files
-ADD tomcat/tomcat-users.xml /opt/tomcat/apache-tomcat-8.5.11/conf/
-ADD tomcat/manager.xml /opt/tomcat/apache-tomcat-8.5.11/conf/Catalina/localhost/
-ADD tomcat/host-manager.xml /opt/tomcat/apache-tomcat-8.5.11/conf/Catalina/localhost/
+ADD tomcat/tomcat-users.xml /opt/tomcat/apache-tomcat-8.5.15/conf/
+ADD tomcat/manager.xml /opt/tomcat/apache-tomcat-8.5.15/conf/Catalina/localhost/
+ADD tomcat/host-manager.xml /opt/tomcat/apache-tomcat-8.5.15/conf/Catalina/localhost/
 
 # Add Supervisor Config
 ADD conf/supervisord.conf /etc/supervisord.conf
